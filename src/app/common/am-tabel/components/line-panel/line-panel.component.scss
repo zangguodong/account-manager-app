@@ -1,0 +1,14 @@
+:host {
+  .line-panel-container {
+    height: 10px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    background-color: #ad7;
+    .line-panel-line {
+      height: 100%;
+      border-radius: 4px;
+      background-color: #f20;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div fxLayout fxLayoutAlign="space-between">
+  <button appAmButton>添加记录</button>
+  <div fxLayout>
+    <div class="expense-panel" fxLayout="column">
+      <span>月总花销: 5000</span>
+      <span>当前总花销: {{ totalUsedMonth$ | async }}</span>
+      <app-line-panel
+        [ratio]="totalUsedMonth$ | async | pure: calcRatio"
+      ></app-line-panel>
+    </div>
+  </div>
+  <jqxChart
+    #myChart
+    [width]="500"
+    [height]="500"
+    [title]="'Desktop browsers share'"
+    [showLegend]="false"
+    [enableAnimations]="true"
+    [source]="dataAdapter"
+    [showBorderLine]="true"
+    [seriesGroups]="seriesGroups"
+  ></jqxChart>
+</div>
+<table cdk-table [dataSource]="mockData">
+  <ng-container cdkColumnDef="amount">
+    <th cdk-header-cell *cdkHeaderCellDef>价格</th>
+    <td cdk-cell *cdkCellDef="let row">{{ row.amount }}</td>
+  </ng-container>
+
+  <ng-container cdkColumnDef="unit">
+    <th cdk-header-cell *cdkHeaderCellDef>单位</th>
+    <td cdk-cell *cdkCellDef="let row">{{ row.unit }}</td>
+  </ng-container>
+
+  <ng-container cdkColumnDef="useType">
+    <th cdk-header-cell *cdkHeaderCellDef>分类</th>
+    <td cdk-cell *cdkCellDef="let row">{{ row.useType }}</td>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="colDefMock"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: colDefMock"></tr>
+</table>

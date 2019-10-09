@@ -1,0 +1,51 @@
+::ng-deep {
+  .am-button {
+    padding: 4px 12px;
+    font-size: 13px;
+    border: 1px solid cornflowerblue;
+    color: black;
+    transition: opacity, background-color 0.2s;
+    opacity: 1;
+    min-height: 1.2em;
+    outline: none;
+    border-radius: 3px;
+    flex: none;
+    align-self: center;
+    &.am-button--large {
+      padding: 6px 15px;
+    }
+    &.am-button--solid {
+      background: cornflowerblue;
+      color: white;
+    }
+    &.am-button--danger {
+      background: orangered;
+      color: white;
+    }
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+      color: white;
+      background-color: cornflowerblue;
+    }
+  }
+  .cdk-header-row,
+  .cdk-row {
+    width: 100%;
+    display: flex;
+  }
+  .cdk-cell,
+  .cdk-header-cell {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .cdk-table {
+    thead {
+      background-color: #eee;
+    }
+    width: 100%;
+    margin-right: initial;
+    padding: 10px 0;
+  }
+}
