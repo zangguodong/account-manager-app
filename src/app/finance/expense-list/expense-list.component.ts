@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ExpenseRecord } from '../type';
 import { of } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
+import { AmDialogService } from '../../common/am-dialog/am-dialog.service';
+import { MainPanelComponent } from '../../main-panel/main-panel.component';
 
 @Component({
   selector: 'app-expense-list',
@@ -26,31 +28,6 @@ export class ExpenseListComponent implements OnInit {
       useType: '吃饭',
     },
   ];
-  seriesGroups: any[] = [
-    {
-      type: 'pie',
-      showLabels: true,
-      series: [
-        {
-          dataField: 'Share',
-          displayText: 'Browser',
-          labelRadius: 120,
-          initialAngle: 15,
-          radius: 170,
-          centerOffset: 0,
-          formatSettings: { sufix: '%', decimalPlaces: 1 },
-        },
-      ],
-    },
-  ];
-  source = {
-    datatype: 'csv',
-    datafields: [{ name: 'Browser' }, { name: 'Share' }],
-  };
-  dataAdapter: any = new jqx.dataAdapter(this.source, {
-    async: false,
-    autoBind: true,
-  });
   totalUsedMonth$ = of(this.mockData).pipe(
     map(records => {
       return records.reduce((totalAmount, item) => {
@@ -65,7 +42,9 @@ export class ExpenseListComponent implements OnInit {
   calcRatio(total: number) {
     return total / 5000;
   }
-  constructor() {}
-
+  constructor(private amDialog: AmDialogService) {}
+  addRecord() {
+    this.amDialog.openDialog(MainPanelComponent);
+  }
   ngOnInit() {}
 }

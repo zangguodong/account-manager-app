@@ -24,6 +24,9 @@ import { RadiusPanelComponent } from './common/am-tabel/components/radius-panel/
 import { LinePanelComponent } from './common/am-tabel/components/line-panel/line-panel.component';
 import { PurePipe } from './common/pipes/pure.pipe';
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
+import { AmDialogComponent } from './common/am-dialog/am-dialog.component';
+import { CdkPortal, CdkPortalOutlet } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
     RadiusPanelComponent,
     LinePanelComponent,
     PurePipe,
+    AmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
     CdkTableModule,
     FlexModule,
     jqxChartModule,
+    OverlayModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

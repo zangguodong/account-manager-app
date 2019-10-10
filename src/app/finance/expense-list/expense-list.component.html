@@ -1,5 +1,5 @@
 <div fxLayout fxLayoutAlign="space-between">
-  <button appAmButton>添加记录</button>
+  <button appAmButton (click)="addRecord()">添加记录</button>
   <div fxLayout>
     <div class="expense-panel" fxLayout="column">
       <span>月总花销: 5000</span>
@@ -9,17 +9,6 @@
       ></app-line-panel>
     </div>
   </div>
-  <jqxChart
-    #myChart
-    [width]="500"
-    [height]="500"
-    [title]="'Desktop browsers share'"
-    [showLegend]="false"
-    [enableAnimations]="true"
-    [source]="dataAdapter"
-    [showBorderLine]="true"
-    [seriesGroups]="seriesGroups"
-  ></jqxChart>
 </div>
 <table cdk-table [dataSource]="mockData">
   <ng-container cdkColumnDef="amount">
